@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Extension Popup</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#" style="display:flexbox;"><img src="images/smile2.png" style="margin-bottom: -9px;" >Job Application
+          Tracker</a></li>
+
+      <li><a href="#"></a></li>
+      <li style="cursor: pointer;"><img src="images/sun.png" type="button" id="mode-toggle" ></li>
+    </ul>
+  </nav>
+
+  <section class="light-mode">
+    <h1><img src="images/smile2.png" alt="">Shraddha Nand Pandey</h1>
+    <div class="div1">
+      <ul>
+        <li class="search-bar"><input type="text" placeholder="Search..."></li>
+        <li class="sort-by">
+          <select>
+            <option value="" disabled selected>Sort By</option>
+            <option value="all">All</option>
+            <option value="applied">Applied</option>
+            <option value="recent">Recent</option>
+            <option value="oldest">Oldest</option>
+            <option value="internship">Internship</option>
+            <option value="Ascending">Ascending </option>
+            <option value="Descending">Descending</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <table id="applicationsTable">
+      <tr>
+        <th>S.No</th>
+        <th>Company Name</th>
+        <th>Position</th>
+        <th>Apply Date</th>
+        <th>Status</th>
+        <th>Link</th>
+        <th>Notes</th>
+        <th>Action</th>
+     
+      </tr>
+    </table>
+
+
+    <p>"The only way to do great work is to love what you do." - Steve Jobs</p>
+
+
+    <button id="addNew" type="button">+Add New</button>
+
+    <div class="formSection">
+      <h3>New Application</h3>
+      <form id="applicationForm">
+          <label for="companyName">Company Name:</label>
+          <input type="text" id="companyName" name="companyName" required>
+  
+          <label for="position">Position:</label>
+          <input type="text" id="position" name="position" required>
+  
+          <label for="applyDate">Apply Date:</label>
+          <input type="date" id="applyDate" name="applyDate" required>
+  
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+              <option value="">Select Status</option>
+              <option value="Applied">Applied</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Offered">Offered</option>
+              <option value="Rejected">Rejected</option>
+          </select>
+  
+          <label for="link">Link:</label>
+          <input type="url" id="link" name="link" required>
+  
+          <label for="notes">Notes:</label>
+          <textarea id="notes" name="notes" rows="4" required></textarea>
+  
+          <button type="button" onclick="addApplication()">Save</button>
+          <button id="closeFormButton" type="button" class="close-button">Close&times;</button>
+      </form>
+  </section>
+
+
+
+  <script src="background.js"></script>
+
+</body>
+
+</html>
+
+

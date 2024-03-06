@@ -1,0 +1,203 @@
+:root {
+    --text-color: #333;
+    --background-color: #cfedf6;
+    --button-bg: #007bff;
+    --button-color: #fff;
+    --section-background-color: #ffffff;
+    --navigation-bg-color: #fff;
+    --button-stroke-bg: #000000;
+    --addNew-bg: #00c6fd;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.logo{
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--text-color);
+
+    font-weight: 400;
+    padding: 5px;
+    font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    justify-content: right
+    ;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.dark-mode {
+    --text-color: #fff;
+    --background-color: #222;
+    --button-bg: #444;
+    --section-background-color: #363b3c;
+    --navigation-bg-color: #363b3c;
+    --button-stroke-bg: #ffffff;
+    --addNew-bg: #222;
+
+  
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: var(--navigation-bg-color);
+    padding: 10px 20px;
+    box-shadow: 0px px 10px rgb(238, 231, 231);
+    z-index: 1000;
+    justify-content: space-between;
+    
+  
+
+}
+
+nav ul {
+    justify-content: space-between;
+    display: flex;
+     /* Distribute items evenly */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 10px; /* Adjust spacing between items */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+section {
+    width: 90%;
+    height: max-content;
+    margin: 15px auto;
+  
+    background-color: var(--section-background-color); /* Updated to use variable */
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+section h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    color: var(--text-color);
+    justify-content: center;
+}
+
+.div1 ul li {
+    display: flex;
+    
+}
+
+section ul li.search-bar input[type="text"] {
+    border-radius: 5px;
+    background-color: var(--background-color);
+    border-color: var(--);
+    text-decoration: none;
+    list-style-type: none;
+    width: auto;
+    padding:5px;
+    margin-left: -40px;
+    color: var(--text-color);
+    
+}
+
+section ul li.sort-by select {
+    border-radius: 5px;
+    background-color: var(--background-color);
+    border-color: var(--button-stroke-bg);
+    text-decoration: none;
+    list-style-type: none;
+    width: auto;
+    padding:5px;
+    margin-left: 5px;
+    color: var(--text-color);
+}
+
+section ul {
+    display: flex; /* Use flexbox for the children */
+    justify-content: space-between; /* Space items evenly along the main axis */
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border: 2px solid #596470;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+th {
+    border: 1px solid #406372;
+    color: white;
+    background-color: #00BAF2;
+    padding: 5px;
+}
+tr {
+    border-collapse: collapse;
+    
+    border: 2px solid #d5dddf;
+    text-align: center;
+    
+    
+
+}
+
+#addNew{
+    background-color:var(--addNew-bg);
+    border-color: var(--button-stroke-bg);
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+    border: 0px 0px;
+    
+
+}
+#addNew:hover{
+    background-color: rgb(0, 170, 255);
+}

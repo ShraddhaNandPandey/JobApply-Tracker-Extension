@@ -1,0 +1,54 @@
+   /* Styles for the form container */
+   .formSection {
+    width: 80%;
+    margin: 0 auto;
+    display: none;
+ 
+}
+
+/* Styles for form elements */
+label {
+    display: inline-block;
+    width: 45%; /* Adjust as needed */
+    margin-bottom: 5px;
+}
+h3{
+    text-align: center;
+}
+input[type="text"],
+input[type="date"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-color);
+    border: 1px solid #ccc;
+    color: var(--text-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: inline-block; /* Display input elements on the same line */
+    width: 50%; /* Adjust as needed */
+    vertical-align: top; /* Align inputs with labels */
+}
+
+button {
+    background-color: #0bd4f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #5da9e3;
+}
+
+/* Clearfix for floating elements */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
