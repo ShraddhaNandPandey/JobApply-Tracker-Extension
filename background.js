@@ -19,7 +19,7 @@ const closeFormButton = document.getElementById('closeFormButton');
 addNewButton.addEventListener('click', () => {
   formSection.style.display = 'block';
 });
-
+``
 closeFormButton.addEventListener('click', () => {
   formSection.style.display = 'none';
 });
@@ -139,3 +139,24 @@ request.onsuccess = function(event) {
 request.onerror = function(event) {
   console.error('Database error:', event.target.error);
 };
+// change text your name
+function changeText(){
+  var newName = prompt("Enter your name");
+  var headline = document.getElementById("headline");
+  if (newName) {
+    var imgTag = headline.querySelector('img');
+    localStorage.setItem('userName', newName);
+    headline.innerText = newName;
+   
+  }
+}
+
+// to store data in localStorage
+window.onload = function() {
+  var storedName = localStorage.getItem('userName');
+  if(storedName) {
+    var headline = document.getElementById("headline");
+    headline.innerText = storedName;
+    
+  }
+}
