@@ -1,13 +1,28 @@
 :root {
     --text-color: #333;
-    --background-color: #cfedf6;
-    --button-bg: #007bff;
+    --background-color: #f5f8ff;
+    --button-bg: #00b8f5;
     --button-color: #fff;
     --section-background-color: #ffffff;
-    --navigation-bg-color: #fff;
+    --navigation-bg-color: #ffffff;
     --button-stroke-bg: #000000;
-    --addNew-bg: #00c6fd;
+    --addNew-bg: #ffffff;
+    --navborder-color: #895bf5;
+    --textColor: #3333;
     
+}
+.dark-mode {
+    --text-color: #fff;
+    --background-color: #1c1c1c;
+    --button-bg: #444;
+    --section-background-color: #242424;
+    --navigation-bg-color: #1c1c1c;
+    --button-stroke-bg: #ffffff;
+    --addNew-bg: #222;
+    --navborder-color: #ece8f3;
+    --textColor: #3ecf8d;
+
+  
 }
 
 body {
@@ -21,6 +36,10 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+.logoname{
+    font-family: "poppins";
+    
 }
 
 .container {
@@ -39,6 +58,10 @@ h1 {
   font-weight: 400;
   font-style: normal;
 }
+h3{
+    font-family: "poppins";
+    font-weight: 300;
+}
 
 button {
     background-color: var(--button-bg);
@@ -52,20 +75,10 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #b7c7bf;
 }
 
-.dark-mode {
-    --text-color: #fff;
-    --background-color: #222;
-    --button-bg: #444;
-    --section-background-color: #363b3c;
-    --navigation-bg-color: #363b3c;
-    --button-stroke-bg: #ffffff;
-    --addNew-bg: #222;
 
-  
-}
 
 nav {
     position: fixed;
@@ -75,7 +88,7 @@ nav {
     
     background-color: var(--navigation-bg-color);
     padding: 10px 20px;
-    box-shadow: 0px px 10px rgb(238, 231, 231);
+    box-shadow: 0px 0.3px 0.1px var(--navborder-color);
     z-index: 1000;
     justify-content: space-between;
     
@@ -90,6 +103,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+
 }
 
 nav ul li {
@@ -114,6 +128,9 @@ section {
     border-radius: 20px;
     padding: 20px;
     margin-top: 100px;
+    box-shadow: 0px 1px 3px #95dded;
+    z-index: 1000;
+    margin-bottom: 100px;
 }
 
 section h1 {
@@ -140,6 +157,7 @@ section ul li.search-bar input[type="text"] {
     margin-left: -40px;
     color: var(--text-color);
     
+    
 }
 
 section ul li.sort-by select {
@@ -160,6 +178,8 @@ section ul {
     align-items: center;
 }
 
+#applyDate{color: #3ecf8d;}
+
 table {
     width: 100%;
     margin-top: 15px;
@@ -169,41 +189,67 @@ table {
 }
 
 th {
-    border: 1px solid #406372;
+    border: 1px solid #3ecf8d;
     color: white;
-    background-color: #00BAF2;
+    background-color: #3ecf8d;
     padding: 5px;
+    
 }
 tr {
     border-collapse: collapse;
     
-    border: 2px solid #d5dddf;
+    border: 1px solid #406372;
     text-align: center;
-    
+    font-family: poppins;
+    background-color: var(--background-color);
+    margin-bottom: 5px;
     
 
+}
+td {
+    border: 1px solid #406372;
+    padding: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+tr:hover{
+    border: 2px solid #000000;
+    color:var(--text-color);
+    background-color: var(--section-background-color);
+    border-color: var(--text-color);
 }
 
 #addNew{
     background-color:var(--addNew-bg);
     border-color: var(--button-stroke-bg);
-    color: white;
+    color: var(--text-color);
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 8px;
     transition-duration: 0.5s;
-    border: 0px 0px;
+    box-shadow: 3px 2px 2px #3ecf8d;
     
 
 }
 #addNew:hover{
-    background-color: rgb(0, 170, 255);
+    box-shadow: 3px 2px 2px #000000;
+   
 }
 
 
 .material-symbols-outlined{
-    color: rgb(0, 170, 255);
+    color: #3ecf8d;
     cursor: pointer;
+    padding: 5px;
+}
+#save{
+    background-color: #3ecf8d;
+}
+.close-button{
+    background-color: #3ecf8d;
+}
+.close-button:hover{
+    background-color: #111212;
 }

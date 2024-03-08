@@ -8,19 +8,28 @@
   <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="bottom-nav.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 <!-- link for an icon -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <!--  -->
+<!-- edit icon -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<!--  -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
 
   <nav>
     <ul>
-      <li><a href="#" style="display:flexbox;"><img src="images/smile2.png" style="margin-bottom: -9px;" >Job Application
+      <li><a href="#" style="display:flexbox;" class="logoname"><img src="images/smile2.png" style="margin-bottom: -9px;" >Job Application
           Tracker</a></li>
         
 
@@ -101,14 +110,29 @@
           <label for="notes">Notes:</label>
           <textarea id="notes" name="notes" rows="4" required></textarea>
   
-          <button type="button" onclick="addApplication()">Save</button>
+          <button type="button" id="save" onclick="addApplication()">Save</button>
           <button id="closeFormButton" type="button" class="close-button">Close&times;</button>
       </form>
   </section>
 
-
+  <div class="bottom-nav">
+    <ul>
+      <li><a href="#">Print</a></li>
+      <li>
+        <i class="devicon-linkedin-plain"></i>
+        
+        <i class="devicon-github-original"></i>
+          
+      </li>
+      <li><span class="material-symbols-outlined" id="settings">
+        settings
+        </span></li>
+    </ul>
+  </div>
+  
 
   <script src="background.js"></script>
+
 
 </body>
 

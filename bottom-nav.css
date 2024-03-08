@@ -1,0 +1,60 @@
+.bottom-nav {
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--navigation-bg-color); /* Use the same background color as the navigation */
+    padding: 10px 10px;
+    box-shadow: 0px -0.3px 0.1px var(--navborder-color); /* Adjust shadow direction to bottom */
+    z-index: 1000;
+
+  }
+  
+  .bottom-nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .bottom-nav ul li {
+    margin-right: 10px;
+  }
+  
+  .bottom-nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  .bottom-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease; /* Add transition effect for color change */
+  }
+  
+  .bottom-nav ul li a:hover {
+    color: #3ecf8d; /* Adjust hover color */
+  }
+  
+  .devicon-github-original{
+    cursor: pointer;
+    opacity: 50%;
+    padding-left: 10px;
+  }
+  .devicon-github-original:hover{
+    opacity: 100%;
+  }
+
+  .devicon-linkedin-plain{
+    cursor: pointer;
+    opacity: 50%;
+  }
+  .devicon-linkedin-plain:hover{
+    opacity: 100%;
+  }
+#settings{
+  opacity: 50%;
+}
+#settings:hover{
+  opacity: 100%;
+}

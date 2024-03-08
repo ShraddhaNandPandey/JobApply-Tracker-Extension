@@ -61,7 +61,8 @@ function addApplication() {
   cells[4].innerText = status;
   cells[5].innerText = link;
   cells[6].innerText = notes;
-  cells[7].innerHTML = '<button onclick="editApplication(this)">Edit</button> <button onclick="deleteApplication(this)">Delete</button>';
+  cells[7].innerHTML = `<span class="material-symbols-outlined" onclick="editApplication(this)">edit</span> <span class="material-symbols-outlined" onclick="deleteApplication(this)">remove</span>`;
+
 
   // Reset form fields
   document.getElementById('applicationForm').reset();
@@ -78,7 +79,7 @@ function editApplication(button) {
   document.getElementById('status').value = cells[4].innerText;
   document.getElementById('link').value = cells[5].innerText;
   document.getElementById('notes').value = cells[6].innerText;
-
+   document.querySelector('.formSection').style.display = 'block';
   // Remove the row from the table
   row.parentNode.removeChild(row);
 }
