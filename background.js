@@ -7,157 +7,158 @@ toggleButton.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     const imageSrc = isDarkMode ? 'images/moon.png': 'images/sun.png';
     toggleButton.setAttribute('src', imageSrc);
-
 });
 
-
-//form will appear
 const addNewButton = document.getElementById('addNew');
 const formSection = document.querySelector('.formSection');
 const closeFormButton = document.getElementById('closeFormButton');
 
 addNewButton.addEventListener('click', () => {
-  formSection.style.display = 'block';
+    formSection.style.display = 'block';
+    closeFormButton.style.display = 'block';
 });
-``
+
 closeFormButton.addEventListener('click', () => {
-  formSection.style.display = 'none';
+    formSection.style.display = 'none';
+    closeFormButton.style.display = 'none';
 });
 
-
-
-
-// Function to add application
 function addApplication() {
-  // Get form input values
-  var companyName = document.getElementById('companyName').value;
-  var position = document.getElementById('position').value;
-  var applyDate = document.getElementById('applyDate').value;
-  var status = document.getElementById('status').value;
-  var link = document.getElementById('link').value;
-  var notes = document.getElementById('notes').value;
+    var companyName = document.getElementById('companyName').value;
+    var position = document.getElementById('position').value;
+    var applyDate = document.getElementById('applyDate').value;
+    var status = document.getElementById('status').value;
+    var link = document.getElementById('link').value;
+    var notes = document.getElementById('notes').value;
 
-  // Validate form inputs
-  if (!companyName || !position || !applyDate || !status || !link || !notes) {
-    alert('Please fill in all fields');
-    return;
-  }
+    if (!companyName || !position || !applyDate || !status || !link || !notes) {
+        alert('Please fill in all fields');
+        return;
+    }
 
-  // Create a new row for the table
-  var table = document.getElementById('applicationsTable');
-  var newRow = table.insertRow(-1);
+    var table = document.getElementById('applicationsTable');
+    var newRow = table.insertRow(-1);
 
-  // Insert cells into the new row and set their content
-  var cells = [];
-  for (var i = 0; i < 8; i++) {
-    cells.push(newRow.insertCell(i));
-  }
+    var cells = [];
+    for (var i = 0; i < 8; i++) {
+        cells.push(newRow.insertCell(i));
+    }
 
-  // Set cell content
-  cells[0].innerText = table.rows.length - 1; // S.No
-  cells[1].innerText = companyName;
-  cells[2].innerText = position;
-  cells[3].innerText = applyDate;
-  cells[4].innerText = status;
-  cells[5].innerText = link;
-  cells[6].innerText = notes;
-  cells[7].innerHTML = `<span class="material-symbols-outlined" onclick="editApplication(this)">edit</span> <span class="material-symbols-outlined" onclick="deleteApplication(this)">remove</span>`;
+    cells[0].innerText = table.rows.length - 1;
+    cells[1].innerText = companyName;
+    cells[2].innerText = position;
+    cells[3].innerText = applyDate;
+    cells[4].innerText = status;
+    var linkElement = document.createElement('a');
+    linkElement.href = link;
+    linkElement.target = '_blank';
+    var imageElement = document.createElement('img');
+    imageElement.src = 'images/link.png';
+    linkElement.appendChild(imageElement);
+    cells[5].appendChild(linkElement);
+    cells[6].innerText = notes;
+    cells[7].innerHTML = `<span class="material-symbols-outlined" onclick="editApplication(this)">edit</span> <span class="material-symbols-outlined" onclick="deleteApplication(this)">remove</span>`;
 
+    // Save data to local storage
+    saveDataToLocalStorage();
 
-  // Reset form fields
-  document.getElementById('applicationForm').reset();
+    document.getElementById('applicationForm').reset();
 }
+
+var isEditing = false;
 
 function editApplication(button) {
-  var row = button.parentNode.parentNode; // Get the parent row of the clicked button
-  var cells = row.cells; // Get the cells of the row
+    if (isEditing) {
+        alert("You can only edit one row at a time.");
+        return;
+    }
 
-  // Populate form fields with data from the clicked row
-  document.getElementById('companyName').value = cells[1].innerText;
-  document.getElementById('position').value = cells[2].innerText;
-  document.getElementById('applyDate').value = cells[3].innerText;
-  document.getElementById('status').value = cells[4].innerText;
-  document.getElementById('link').value = cells[5].innerText;
-  document.getElementById('notes').value = cells[6].innerText;
-   document.querySelector('.formSection').style.display = 'block';
-  // Remove the row from the table
-  row.parentNode.removeChild(row);
+    var row = button.parentNode.parentNode;
+    var cells = row.cells;
+
+    document.getElementById('companyName').value = cells[1].innerText;
+    document.getElementById('position').value = cells[2].innerText;
+    document.getElementById('applyDate').value = cells[3].innerText;
+    document.getElementById('status').value = cells[4].innerText;
+    document.getElementById('link').value = cells[5].querySelector('a').href;
+    document.getElementById('notes').value = cells[6].innerText;
+
+    isEditing = true;
+    document.querySelector('.formSection').style.display = 'block';
+    row.parentNode.removeChild(row);
+
+    var tableRows = document.querySelectorAll("#applicationsTable tr:not(:first-child)");
+    for (var i = 0; i < tableRows.length; i++) {
+        tableRows[i].cells[0].innerText = i + 1;
+    }
 }
 
-// Function to handle deleting an application
+document.getElementById('save').addEventListener('click', function() {
+    isEditing = false;
+    document.querySelector('.formSection').style.display = 'none';
+});
+
 function deleteApplication(button) {
-  var row = button.parentNode.parentNode; // Get the parent row of the clicked button
-  row.parentNode.removeChild(row); // Remove the row from the table
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+
+    // Save data to local storage after deletion
+    saveDataToLocalStorage();
 }
 
-
-// Open (or create) a database
-var request = indexedDB.open('jobApplicationsDatabase', 1);
-
-// Event handler for when the database is created or upgraded
-request.onupgradeneeded = function(event) {
-  var db = event.target.result;
-
-  // Create an object store (similar to a table in SQL databases)
-  var objectStore = db.createObjectStore('applications', { keyPath: 'id', autoIncrement: true });
-
-  // Define indexes for efficient querying
-  objectStore.createIndex('companyName', 'companyName', { unique: false });
-  objectStore.createIndex('applyDate', 'applyDate', { unique: false });
-};
-
-// Event handler for successful database opening
-request.onsuccess = function(event) {
-  var db = event.target.result;
-
-  // Function to add application data to the database
-  function addApplication(applicationData) {
-    var transaction = db.transaction(['applications'], 'readwrite');
-    var objectStore = transaction.objectStore('applications');
-    var request = objectStore.add(applicationData);
-    request.onsuccess = function(event) {
-      console.log('Application added to IndexedDB');
-    };
-    request.onerror = function(event) {
-      console.log('Error adding application to IndexedDB:', event.target.error);
-    };
-  }
-
-  // Example usage:
-  // Add a new application
-  var newApplication = {
-    companyName: document.getElementById('companyName').value,
-    position: document.getElementById('position').value,
-    applyDate: document.getElementById('applyDate').value,
-    status: document.getElementById('status').value,
-    link: document.getElementById('link').value,
-    notes: document.getElementById('notes').value
-  };
-  addApplication(newApplication);
-};
-
-// Event handler for database errors
-request.onerror = function(event) {
-  console.error('Database error:', event.target.error);
-};
-// change text your name
-function changeText(){
-  var newName = prompt("Enter your name");
-  var headline = document.getElementById("headline");
-  if (newName) {
-    var imgTag = headline.querySelector('img');
-    localStorage.setItem('userName', newName);
-    headline.innerText = newName;
-   
-  }
-}
-
-// to store data in localStorage
-window.onload = function() {
-  var storedName = localStorage.getItem('userName');
-  if(storedName) {
+function changeText() {
+    var newName = prompt("Enter your name");
     var headline = document.getElementById("headline");
-    headline.innerText = storedName;
-    
-  }
+    if (newName) {
+        var imgTag = headline.querySelector('img');
+        localStorage.setItem('userName', newName);
+        headline.innerText = newName;
+    }
 }
+
+// Function to save data to local storage
+function saveDataToLocalStorage() {
+    var tableRows = document.querySelectorAll("#applicationsTable tr:not(:first-child)");
+    var data = [];
+    for (var i = 0; i < tableRows.length; i++) {
+        var cells = tableRows[i].cells;
+        data.push({
+            companyName: cells[1].innerText,
+            position: cells[2].innerText,
+            applyDate: cells[3].innerText,
+            status: cells[4].innerText,
+            link: cells[5].querySelector('a').href,
+            notes: cells[6].innerText
+        });
+    }
+    localStorage.setItem('tableData', JSON.stringify(data));
+}
+
+// Load data from local storage when the page loads
+window.onload = function () {
+    var storedName = localStorage.getItem('userName');
+    if (storedName) {
+        var headline = document.getElementById("headline");
+        headline.innerText = storedName;
+    }
+
+    var tableData = localStorage.getItem('tableData');
+    if (tableData) {
+        var data = JSON.parse(tableData);
+        for (var i = 0; i < data.length; i++) {
+            var newRow = document.getElementById('applicationsTable').insertRow(-1);
+            newRow.innerHTML = `
+                <td>${i + 1}</td>
+                <td>${data[i].companyName}</td>
+                <td>${data[i].position}</td>
+                <td>${data[i].applyDate}</td>
+                <td>${data[i].status}</td>
+                <td><a href="${data[i].link}" target="_blank"><img src="images/link.png"></a></td>
+                <td>${data[i].notes}</td>
+                <td><span class="material-symbols-outlined" onclick="editApplication(this)">edit</span> <span class="material-symbols-outlined" onclick="deleteApplication(this)">remove</span></td>
+            `;
+        }
+    }
+}
+// add searching event listener
+

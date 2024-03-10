@@ -1,0 +1,25 @@
+.scroll-container {
+    overflow-y: scroll;
+    height: 300px; /* Set a fixed height for the container */
+  }
+  
+  /* Hide the default scrollbar */
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  .scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Optional: Change the scrollbar track color */
+  }
+  
+  /* Handle */
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #e40c0c; /* Optional: Change the scrollbar handle color */
+  }
+  
+  /* Handle on hover */
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #ae2323; /* Optional: Change the scrollbar handle color on hover */
+  }
+  

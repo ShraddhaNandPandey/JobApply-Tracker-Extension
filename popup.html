@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="form.css">
   <link rel="stylesheet" href="bottom-nav.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- on scroll animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!--  -->
   
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
           
@@ -77,11 +83,10 @@
 
     <div class="end" style="display: flex; justify-content:space-between">
       <button id="addNew" type="button">+Add New</button>
-      <span class="material-symbols-outlined" onclick="changeText()">
-        badge
-        </span>
+       <button id="closeFormButton" type="button" class="close-button">&times;</button>
+     
     </div>
-  
+    
 
     <div class="formSection">
       <h3>New Application</h3>
@@ -99,37 +104,44 @@
           <select id="status" name="status" required>
               <option value="">Select Status</option>
               <option value="Applied">Applied</option>
+              <option value="Want to apply">Want to Apply</option>
               <option value="Interviewing">Interviewing</option>
               <option value="Offered">Offered</option>
               <option value="Rejected">Rejected</option>
+              
           </select>
-  
           <label for="link">Link:</label>
-          <input type="url" id="link" name="link" required>
+          <input type="url" id="link" name="link" pattern="https?://.+">
+          
   
           <label for="notes">Notes:</label>
           <textarea id="notes" name="notes" rows="4" required></textarea>
-  
-          <button type="button" id="save" onclick="addApplication()">Save</button>
-          <button id="closeFormButton" type="button" class="close-button">Close&times;</button>
+          <div class="SaveClose" >
+            <button type="button" id="save" onclick="addApplication()">Save</button>
+           
+          </div>
+        
       </form>
+      
   </section>
+  
 
   <div class="bottom-nav">
     <ul>
-      <li><a href="#">Print</a></li>
+      <li class="copyright"><a href="#">© 2024 snp</a></li>
       <li>
         <i class="devicon-linkedin-plain"></i>
         
         <i class="devicon-github-original"></i>
           
       </li>
-      <li><span class="material-symbols-outlined" id="settings">
+      <li><span class="material-symbols-outlined" id="settings" class="settings" onclick="changeText()">
         settings
         </span></li>
     </ul>
   </div>
-  
+
+
 
   <script src="background.js"></script>
 
