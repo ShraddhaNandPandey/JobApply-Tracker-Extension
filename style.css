@@ -1,20 +1,4 @@
 :root {
-    --text-color: #333;
-    --background-color: #195ee6;
-    --button-bg: #00b8f5;
-    --button-color: #fff;
-    --section-background-color: #ffffff;
-    --navigation-bg-color: #ffffff;
-    --button-stroke-bg: #000000;
-    --addNew-bg: #ffffff;
-    --navborder-color: #000000;
-    --textColor: #3333;
-    --label-bg-color : #ffffff;
-    --application-input-bg: #ccddf5;
-
-    
-}
-.dark-mode {
     --text-color: #fff;
     --background-color: #1c1c1c;
     --button-bg: #444;
@@ -27,7 +11,42 @@
     --label-bg-color: #1c1c1c;
     --application-input-bg: #202020;
 
+    --gradient-start-color: #171918; /* Define your starting color */
+    --gradient-end-color: #070708;
+    
+    
+}
+.dark-mode {
+
+    --text-color: #333;
+    --background-color: #0dc2ff;
+    --button-bg: #00b8f5;
+    --button-color: #fff;
+    --section-background-color: #ffffff;
+    --navigation-bg-color: #ffffff;
+    --button-stroke-bg: #000000;
+    --addNew-bg: #ffffff;
+    --navborder-color: #000000;
+    --textColor: #3333;
+    --label-bg-color : #ffffff;
+    --application-input-bg: #ccddf5;
+
+
+
+
+    --gradient-start-color: #0bfe9d; /* Define your starting color */
+    --gradient-end-color: #4c76ea;
   
+}
+#notes {
+    background-color: var(--background-color); /* Adjust variable usage */
+    width: 100%;
+    min-height: 50px;
+    max-height: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow-y: auto;
 }
 
 body {
@@ -35,6 +54,18 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+
+
+    
+ 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    
+
 }
 .logo{
     font-family: "Orbitron", sans-serif;
@@ -62,6 +93,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  
 }
 h3{
     font-family: "poppins";
@@ -196,8 +228,10 @@ table {
 th {
     border: 1px solid #406372;
     color: white;
-    background-color: #3ecf8d;
+    background-color: #0dc2ff;
     padding: 5px;
+ 
+
     
 }
 tr {
@@ -283,4 +317,78 @@ tr:hover{
 #companyName,#position,#status,#applyDate,#link,#notes{
     background-color: var(--application-input-bg);
 
+}
+table {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #3ecf8d;
+    border-collapse: collapse;
+    padding: 3px;
+    table-layout: fixed; /* Set table layout to fixed */
+}
+
+th, td {
+    border: 1px solid #103927;
+    padding: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    word-wrap: break-word; /* Allow long words to break */
+}
+th:first-child, td:first-child {
+    width: 50px; /* Adjust the width as needed */
+}
+th:second-child, td:second-child {
+    width: 50px; /* Adjust the width as needed */
+}
+th:nth-child(6), td:nth-child(6) {
+    width: 50px; /* Adjust the width as needed */
+}
+th:nth-child(4), td:nth-child(4) {
+    width: 90px; /* Adjust the width as needed */
+}
+th:nth-child(8), td:nth-child(8) {
+    width: 80px; /* Adjust the width as needed */
+}
+
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    section {
+        width: 95%;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin-right: 5px;
+    }
+
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .bottom-nav ul {
+        padding: 5px;
+    }
+
+    .bottom-nav ul li .devicon-linkedin-plain,
+    .bottom-nav ul li .devicon-github-original {
+        font-size: 20px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        font-size: 12px;
+    }
 }
