@@ -13,6 +13,8 @@
 
     --gradient-start-color: #171918; /* Define your starting color */
     --gradient-end-color: #070708;
+
+    --text-shadow-h1: #0dc2ff;
     
     
 }
@@ -30,6 +32,8 @@
     --textColor: #3333;
     --label-bg-color : #ffffff;
     --application-input-bg: #ccddf5;
+
+    --text-shadow-h1: #dcd1d1;
 
 
 
@@ -86,7 +90,7 @@ body {
 
 h1 {
     color: var(--text-color);
-
+    text-shadow: 0 1px 3px var(--text-shadow-h1);
     font-weight: 400;
     padding: 5px;
     font-family: "Orbitron", sans-serif;
@@ -283,19 +287,19 @@ tr:hover{
 }
 .close-button{
     width: 32px;
-   
+
     
 }
 
 
 .material-symbols-outlined{
-    color: #195de6;
+    color: #0dc2ff;
     cursor: pointer;
     padding: 5px;
     opacity: 50%;
 }
 .material-symbols-outlined:hover{
-    color: #195de6;
+    color: #0dc2ff;
     cursor: pointer;
     padding: 5px;
     opacity: 100%;
