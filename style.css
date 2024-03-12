@@ -1,14 +1,14 @@
 :root {
     --text-color: #fff;
-    --background-color: #1c1c1c;
+    --background-color: #1e1e21;
     --button-bg: #444;
-    --section-background-color: #242424;
-    --navigation-bg-color: #1c1c1c;
+    --section-background-color: #2a3038;
+    --navigation-bg-color: #2a3038;
     --button-stroke-bg: #ffffff;
     --addNew-bg: #222;
     --navborder-color: #4f4e4e;
     --textColor: #3ecf8d;
-    --label-bg-color: #1c1c1c;
+    --label-bg-color: #1e1e21;
     --application-input-bg: #202020;
 
     --gradient-start-color: #171918; /* Define your starting color */
@@ -21,11 +21,11 @@
 .dark-mode {
 
     --text-color: #333;
-    --background-color: #0dc2ff;
+    --background-color: #dff6fc;
     --button-bg: #00b8f5;
     --button-color: #fff;
     --section-background-color: #ffffff;
-    --navigation-bg-color: #ffffff;
+    --navigation-bg-color: #2a3038;
     --button-stroke-bg: #000000;
     --addNew-bg: #ffffff;
     --navborder-color: #000000;
@@ -77,10 +77,21 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-.logoname{
+.logoname {
     font-family: "poppins";
+    color: white;
+    font-style: bold;
+    font-size: 18px;
+
     
 }
+
+.logoname::after {
+    content: "Tracker";
+    color: #00b8f5;
+}
+
+
 
 .container {
     max-width: 800px;
@@ -230,7 +241,7 @@ table {
 }
 
 th {
-    border: 1px solid #406372;
+    border: 1px solid #1e1e21;
     color: white;
     background-color: #0dc2ff;
     padding: 5px;
@@ -241,7 +252,7 @@ th {
 tr {
     border-collapse: collapse;
     
-    border: 1px solid #3ecf8d;
+    border: 1px solid #0dc2ff;
     text-align: center;
     font-family: poppins;
     background-color: var(--background-colo);
@@ -250,7 +261,7 @@ tr {
 
 }
 td {
-    border: 1px solid #103927;
+    border: 1px solid #0dc2ff;
     padding: 5px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -352,7 +363,7 @@ table {
 }
 
 th, td {
-    border: 1px solid #103927;
+    border: 1px solid #0e3f50;
     padding: 5px;
     padding-bottom: 5px;
     padding-top: 5px;
