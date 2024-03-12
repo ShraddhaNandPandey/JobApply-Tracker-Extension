@@ -270,14 +270,16 @@ tr:hover{
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    color: var(--text-color);
     border-radius: 8px;
     transition-duration: 0.5s;
-    box-shadow: 3px 2px 2px #3ecf8d;
+    box-shadow: 3px 2px 2px #0dc2ff;
     
 
 }
 #addNew:hover{
-    box-shadow: 3px 2px 2px #000000;
+    box-shadow: 3px 2px 2px var(--background-color);
+    color: #abdced;
    
 }
 .SaveClose{
@@ -306,7 +308,25 @@ tr:hover{
 }
 
 #save{
-    background-color: #195de6;
+    background-color: #002970;
+   
+    background-color:var(--addNew-bg);
+    border-color: var(--button-stroke-bg);
+    color: var(--text-color);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition-duration: 0.5s;
+    box-shadow: 3px 2px 2px #0dc2ff;
+    padding:10px;
+}
+#save:hover{
+    box-shadow: 3px 2px 2px var(--background-color);
+    color: #abdced;
+   
 }
 .close-button{
     background-color: transparent;
