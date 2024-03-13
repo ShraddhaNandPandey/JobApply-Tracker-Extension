@@ -16,7 +16,7 @@
 }
 
 .del_modal{
-    background-color:#1e1e21;
+    background-color: var(--background-color);
     margin: auto; /* Center the modal horizontally and vertically */
     padding: 20px;
     border: 1px solid #888;
@@ -25,7 +25,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: relative; /* Add position relative to center content */
-    padding: 10px;
+    padding: 25px;
 
   }
 
@@ -44,4 +44,12 @@ button {
 .yes-no-btn {
     display: flex;
     justify-content: flex-end;
+}
+.no{
+    background-color: rgb(248, 85, 85);
+    opacity: 80%;
+}
+.no:hover{
+    opacity: 100%;
+    background-color: rgb(248, 85 ,85);
 }

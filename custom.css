@@ -12,7 +12,7 @@
   }
   
   .modal-content {
-    background-color: #9ceeb7;
+    background-color: var(--background-color);
     margin: auto; /* Center the modal horizontally and vertically */
     padding: 20px;
     border: 1px solid #888;
