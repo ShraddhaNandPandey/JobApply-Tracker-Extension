@@ -201,3 +201,57 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+// sorting 
+let sortDirection = 'asc';
+
+function sortBy(key) {
+    const table = document.getElementById('applicationsTable');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.sort((rowA, rowB) => {
+        const cellA = rowA.querySelector(`td:nth-child(${getHeaderIndex(key)})`).innerText;
+        const cellB = rowB.querySelector(`td:nth-child(${getHeaderIndex(key)})`).innerText;
+
+        if (key === 'date') {
+            return new Date(cellA) - new Date(cellB);
+        } else {
+            return cellA.localeCompare(cellB);
+        }
+    });
+
+    if (sortDirection === 'desc') {
+        rows.reverse();
+        sortDirection = 'asc';
+    } else {
+        sortDirection = 'desc';
+    }
+
+    rows.forEach(row => tbody.appendChild(row));
+}
+
+function getHeaderIndex(key) {
+    const table = document.getElementById('applicationsTable');
+    const headerRow = table.querySelector('thead tr');
+    for (let i = 0; i < headerRow.cells.length; i++) {
+        if (headerRow.cells[i].innerText.toLowerCase().includes(key)) {
+            return i + 1; // Adding 1 to account for nth-child indexing
+        }
+    }
+    return -1;
+}
+
+
+//delete modal
+function closeModal() {
+    // Find the modal element and hide it
+    const modalElement = document.getElementById('delete_modal');
+
+    
+    modalElement.style.display = 'none';
+}
+
+
+
+//delete modal end
