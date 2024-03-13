@@ -42,7 +42,7 @@
         
 
       <li><a href="#"></a></li>
-      <li style="cursor: pointer;"><img src="images/sun.png" type="button" id="mode-toggle" ></li>
+      <li style="cursor: pointer;" class="sun"><img src="images/sun.png " type="button" id="mode-toggle" ></li>
     </ul>
   </nav>
 
@@ -134,9 +134,11 @@
     <ul>
       <li class="copyright"><a href="#">© 2024 snp</a></li>
       <li>
-        <i class="devicon-linkedin-plain"></i>
+        <a href="#" id="linkedin"> <i class="devicon-linkedin-plain"></i></a>
         
-        <i class="devicon-github-original"></i>
+        <a href="#" id="github"> <i class="devicon-github-original"></i></a>
+        
+    
           
       </li>
 
@@ -148,7 +150,7 @@
     <span class="close">&times;</span>
     <div>
       <input type="text" id="nameInput" placeholder="Enter your name">
-      <input type="text" id="nameInput" placeholder="Linkedin link">
+      <input type="text" id="linkedin_link" placeholder="Linkedin link">
       <input type="text" id="nameInput" placeholder="Github link">
     </div>
     <button onclick="saveName()">Save</button>

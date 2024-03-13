@@ -172,6 +172,20 @@ function saveName() {
         localStorage.setItem('userName', newName);
         headline.innerText = newName;
     }
+
+
+    // linkedin id setup
+  
+    const linkedinLink = document.getItem('linkedin');
+
+    if(linkedinLink)
+    {
+        const linkedinAnchor = document.get("linkedin");
+        linkedinAnchor.href = linkedinLink;
+        linkedinAnchor.title = "Linkedin Profile";
+        localStorage.setItem('linkedin', linkedinLink);
+
+    }
     closeModal();
 }
 

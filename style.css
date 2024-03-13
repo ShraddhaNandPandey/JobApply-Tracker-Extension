@@ -91,7 +91,13 @@ body {
     color: #00b8f5;
 }
 
-
+.sun{
+    opacity: 80%;
+}
+.sun:hover{
+    opacity: 100%;
+    
+}
 
 .container {
     max-width: 800px;
