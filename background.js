@@ -160,7 +160,7 @@ function loadDataFromLocalStorage() {
 }
 
 // Modal code
-function openModal() {
+function openM() {
     const modal = document.getElementById("myModal");
     modal.style.display = "block";
 }
@@ -186,10 +186,10 @@ function saveName() {
         localStorage.setItem('linkedin', linkedinLink);
 
     }
-    closeModal();
+    close();
 }
 
-function closeModal() {
+function close() {
     const modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
@@ -243,15 +243,39 @@ function getHeaderIndex(key) {
 }
 
 
-//delete modal
-function closeModal() {
-    // Find the modal element and hide it
-    const modalElement = document.getElementById('delete_modal');
+//delete modal end
 
-    
-    modalElement.style.display = 'none';
+// Adjusted deleteApplication function to reach the row properly
+function deleteApplication(button) {
+    const row = button.closest('tr'); // Find the closest row element
+    // Set a global variable to hold the row to delete
+    rowToDelete = row;
+    // Open the delete modal
+    openModal('delete_modal');
+}
+
+// Function to handle deletion confirmation
+function confirmDelete() {
+    // Close the delete modal
+    closeModal('delete_modal');
+    // Remove the row from the table
+    rowToDelete.parentNode.removeChild(rowToDelete);
+    // Save data to local storage if needed
+    saveDataToLocalStorage();
 }
 
 
 
-//delete modal end
+
+
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = "block";
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = "none";
+}
+
+

@@ -178,8 +178,8 @@
            <div class="h3">Are you sure you want to delete this?</div></li>
            
            <div class="yes-no-btn">
-            <li><button type="button" class="yes" onclick="deleteItem(this);">Yes</button>
-              <button type="button" class="no" onclick="closeModal();">Close</button></li>
+            <li> <button type="button" class="yes" onclick="confirmDelete();">Yes</button>
+              <button type="button" class="no" onclick="closeModal('delete_modal');">Close</button></li>
 
            </div>
              
@@ -194,7 +194,7 @@
 
 
 
-      <li><span class="material-symbols-outlined" id="settings" class="settings" onclick="openModal()">
+      <li><span class="material-symbols-outlined" id="settings" class="settings" onclick="openM()">
           settings
         </span></li>
     </ul>
