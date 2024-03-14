@@ -349,6 +349,9 @@ tr:hover{
     background-color: transparent;
     color:#195de6;
     display: none;
+    margin: 35px;
+
+   
 }
 .close-button:hover{
     background-color: var(--background-color);

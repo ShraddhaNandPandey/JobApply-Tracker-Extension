@@ -31,6 +31,9 @@ function toggleDarkMode() {
 function showForm() {
     formSection.style.display = 'block';
     closeFormButton.style.display = 'block';
+    const notShowAddNew = document.getElementById('addNew');
+    notShowAddNew.style.display='none';
+   
 }
 
 function hideForm() {
