@@ -10,6 +10,8 @@ const applicationsTable = document.getElementById('applicationsTable');
 let isDarkMode = false;
 let isEditing = false;
 
+
+
 // Event listeners
 toggleButton.addEventListener('click', toggleDarkMode);
 addNewButton.addEventListener('click', showForm);
@@ -35,6 +37,15 @@ function hideForm() {
     formSection.style.display = 'none';
     closeFormButton.style.display = 'none';
     isEditing = false;
+    if(!isEditing) {
+        const newToEdit = document.getElementById('changeTextToEdit');
+        newToEdit.textContent = 'New Application';
+
+        const notShowAddNew = document.getElementById('addNew');
+        notShowAddNew.style.display = 'block';
+
+    
+    }
 }
 
 function saveApplication() {
@@ -49,6 +60,8 @@ function saveApplication() {
         alert('Please fill in all fields');
         return;
     }
+
+
 
     const newRow = applicationsTable.insertRow(-1);
     const cells = [];
@@ -76,6 +89,9 @@ function saveApplication() {
     saveDataToLocalStorage();
     document.getElementById('applicationForm').reset();
     hideForm();
+
+    
+    
 }
 
 function editApplication(button) {
@@ -84,8 +100,12 @@ function editApplication(button) {
         return;
     }
 
+    
+
     const row = button.parentNode.parentNode;
     const cells = row.cells;
+
+ 
 
     document.getElementById('companyName').value = cells[1].innerText;
     document.getElementById('position').value = cells[2].innerText;
@@ -96,7 +116,22 @@ function editApplication(button) {
 
     isEditing = true;
     formSection.style.display = 'block';
+    if(isEditing)
+{
+
+    const notShowAddNew = document.getElementById('addNew');
+    notShowAddNew.style.display='none';
+    const newToEdit = document.getElementById('changeTextToEdit');
+    newToEdit.textContent = 'Edit Application';
+    
+}
+
+
+   
+
     row.parentNode.removeChild(row);
+    
+
 
     const tableRows = document.querySelectorAll("#applicationsTable tr:not(:first-child)");
     tableRows.forEach((row, index) => {
@@ -277,5 +312,6 @@ function closeModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = "none";
 }
+
 
 
