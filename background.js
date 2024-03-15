@@ -1,4 +1,9 @@
-// Access DOM elements
+// background.js
+
+// Add an event listener to the extension icon
+
+
+
 const toggleButton = document.getElementById('mode-toggle');
 const body = document.body;
 const addNewButton = document.getElementById('addNew');
@@ -33,6 +38,10 @@ function showForm() {
     closeFormButton.style.display = 'block';
     const notShowAddNew = document.getElementById('addNew');
     notShowAddNew.style.display='none';
+
+    //bottom navigation position change;
+    const bottomNav = document.getElementById('bottom-nav');
+    bottomNav.style.position='relative';
    
 }
 
@@ -46,7 +55,9 @@ function hideForm() {
 
         const notShowAddNew = document.getElementById('addNew');
         notShowAddNew.style.display = 'block';
-
+       
+        const bottomNav = document.getElementById('bottom-nav');
+        bottomNav.style.position = 'fixed';
     
     }
 }
@@ -316,5 +327,14 @@ function closeModal(id) {
     modal.style.display = "none";
 }
 
+
+
+//scroll
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progress-bar').style.width = scrollProgress + '%';
+  });
 
 

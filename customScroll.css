@@ -1,25 +1,38 @@
-.scroll-container {
-    overflow-y: scroll;
-    height: 300px; /* Set a fixed height for the container */
-  }
+body {
+  overflow-x: hidden;
+  z-index: -5; /* Hide horizontal scrollbar */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
   
-  /* Hide the default scrollbar */
-  .scroll-container::-webkit-scrollbar {
-    width: 8px;
+  position: absolute;
+  z-index: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00aff5ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e8c100;
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 0;
   }
-  
-  /* Track */
-  .scroll-container::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Optional: Change the scrollbar track color */
+  100% {
+    opacity: 1;
   }
-  
-  /* Handle */
-  .scroll-container::-webkit-scrollbar-thumb {
-    background: #e40c0c; /* Optional: Change the scrollbar handle color */
-  }
-  
-  /* Handle on hover */
-  .scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #ae2323; /* Optional: Change the scrollbar handle color on hover */
-  }
-  
+}

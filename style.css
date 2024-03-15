@@ -65,7 +65,9 @@ body {
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%;
+    right: 0;
+    bottom: 0;
+    width: 99%;
     height: 100%;
     overflow: auto;
     
@@ -129,6 +131,7 @@ h1 {
 h3{
     font-family: "poppins";
     font-weight: 300;
+    padding: 30px;
 }
 
 button {
