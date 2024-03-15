@@ -1,15 +1,15 @@
 :root {
     --text-color: #fff;
-    --background-color: #1e1e21;
+    --background-color: #000000;
     --button-bg: #444;
-    --section-background-color: #2a3038;
-    --navigation-bg-color: #2a3038;
+    --section-background-color: #0b0a0d;
+    --navigation-bg-color: #030303;
     --button-stroke-bg: #ffffff;
     --addNew-bg: #222;
     --navborder-color: #4f4e4e;
     --textColor: #3ecf8d;
     --label-bg-color: #1e1e21;
-    --application-input-bg: #202020;
+    --application-input-bg: #000000;
 
     --gradient-start-color: #171918; /* Define your starting color */
     --gradient-end-color: #070708;
@@ -21,13 +21,13 @@
 .dark-mode {
 
     --text-color: #333;
-    --background-color: #dff6fc;
+    --background-color: #eff7f9;
     --button-bg: #00b8f5;
     --button-color: #fff;
     --section-background-color: #ffffff;
-    --navigation-bg-color: #2a3038;
+    --navigation-bg-color: #ffffff;
     --button-stroke-bg: #000000;
-    --addNew-bg: #ffffff;
+    --addNew-bg: #002970;
     --navborder-color: #000000;
     --textColor: #3333;
     --label-bg-color : #ffffff;
@@ -76,12 +76,22 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    
 }
 .logoname {
     font-family: "poppins";
-    color: white;
+
     font-style: bold;
     font-size: 18px;
+
+    color: var(--text-color);
+    text-shadow: 0 1px 3px var(--text-shadow-h1);
+    font-weight: 400;
+    padding: 5px;
+  
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 
     
 }
@@ -282,12 +292,12 @@ tr:hover{
 #addNew{
     background-color:var(--addNew-bg);
     border-color: var(--button-stroke-bg);
-    color: var(--text-color);
+    color: #ffff;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color: var(--text-color);
+ 
     border-radius: 8px;
     transition-duration: 0.5s;
     box-shadow: 3px 2px 2px #0dc2ff;
@@ -329,12 +339,12 @@ tr:hover{
    
     background-color:var(--addNew-bg);
     border-color: var(--button-stroke-bg);
-    color: var(--text-color);
+    color: white;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color: var(--text-color);
+
     border-radius: 8px;
     transition-duration: 0.5s;
     box-shadow: 3px 2px 2px #0dc2ff;
