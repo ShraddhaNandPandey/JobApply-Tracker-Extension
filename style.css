@@ -75,6 +75,7 @@ body {
     height: 100%;
     overflow: auto;
     
+
 }
 .logo{
     font-family: "Orbitron", sans-serif;
@@ -205,6 +206,7 @@ section {
     box-shadow: 0px 1px 3px #95dded;
     z-index: 1000;
     margin-bottom: 100px;
+    
 }
 
 section h1 {
@@ -257,7 +259,7 @@ section ul {
 table {
     width: 100%;
     margin-top: 15px;
-    border: 1px solid #3ecf8d;
+    
     border-collapse: collapse;
     padding: 3px;
 }
@@ -381,7 +383,7 @@ tr:hover{
 table {
     width: 100%;
     margin-top: 15px;
-    border: 1px solid #3ecf8d;
+   
     border-collapse: collapse;
     padding: 3px;
     table-layout: fixed; /* Set table layout to fixed */
