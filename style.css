@@ -452,3 +452,14 @@ th:nth-child(8), td:nth-child(8) {
         font-size: 12px;
     }
 }
+@media screen and (max-width: 768px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    th, td {
+        min-width: 100px; /* Adjust as needed */
+        padding: 8px;
+    }
+}
