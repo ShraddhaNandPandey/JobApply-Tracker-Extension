@@ -15,6 +15,10 @@
     --gradient-end-color: #070708;
 
     --text-shadow-h1: #0dc2ff;
+
+    --square-line :  rgb(20, 21, 23);
+
+
     
     
 }
@@ -34,6 +38,7 @@
     --application-input-bg: #ccddf5;
 
     --text-shadow-h1: #dcd1d1;
+    --square-line :  rgb(225, 231, 241);
 
 
 
@@ -60,8 +65,8 @@ body {
  
     background-size: 20px 20px;
     background-image:
-      linear-gradient(to right, rgb(20, 21, 23) 0.5px, transparent 0px),
-      linear-gradient(to bottom, rgb(20, 21, 23)0.5px, transparent 0px);
+      linear-gradient(to right, var(--square-line) 0.5px, transparent 0px),
+      linear-gradient(to bottom, var(--square-line) 0.5px, transparent 0px);
  
 
     
