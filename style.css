@@ -57,8 +57,12 @@ body {
     font-family: Arial, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-
+ 
+    background-size: 20px 20px;
+    background-image:
+      linear-gradient(to right, rgb(20, 21, 23) 0.5px, transparent 0px),
+      linear-gradient(to bottom, rgb(20, 21, 23)0.5px, transparent 0px);
+ 
 
     
  
@@ -71,7 +75,6 @@ body {
     height: 100%;
     overflow: auto;
     
-
 }
 .logo{
     font-family: "Orbitron", sans-serif;
