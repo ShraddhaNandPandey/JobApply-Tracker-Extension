@@ -21,3 +21,8 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+
+#logoutSection {
+  display: none;
+}

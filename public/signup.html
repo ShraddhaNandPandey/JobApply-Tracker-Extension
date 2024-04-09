@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="login.css"> <!-- Link to the shared CSS file -->
+</head>
+<style>
+     :root {
+        --text-color: #fff;
+        --background-color: #000000;
+        --button-bg: #444;
+        --section-background-color: #0b0a0d;
+        --navigation-bg-color: #030303;
+        --button-stroke-bg: #ffffff;
+        --addNew-bg: #222;
+        --navborder-color: #4f4e4e;
+        --textColor: #3ecf8d;
+        --label-bg-color: #1e1e21;
+        --application-input-bg: #000000;
+        --gradient-start-color: #171918;
+        --gradient-end-color: #070708;
+        --text-shadow-h1: #0dc2ff;
+        --square-line :  rgb(20, 21, 23);
+    }
+
+    .dark-mode {
+        --text-color: #333;
+        --background-color: #eff7f9;
+        --button-bg: #00b8f5;
+        --button-color: #fff;
+        --section-background-color: #ffffff;
+        --navigation-bg-color: #ffffff;
+        --button-stroke-bg: #000000;
+        --addNew-bg: #002970;
+        --navborder-color: #000000;
+        --textColor: #3333;
+        --label-bg-color : #ffffff;
+        --application-input-bg: #ccddf5;
+        --text-shadow-h1: #dcd1d1;
+        --square-line :  rgb(225, 231, 241);
+        --gradient-start-color: #0bfe9d;
+        --gradient-end-color: #4c76ea;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-size: 20px 20px;
+        background-image: linear-gradient(to right, var(--square-line) 0.5px, transparent 0px),
+                          linear-gradient(to bottom, var(--square-line) 0.5px, transparent 0px);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000000;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    .signup-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px; /* Added max-width for responsiveness */
+        width: 100%; /* Added width for responsiveness */
+        position: relative; /* Added position relative for absolute positioning of close button */
+        align-items: center; 
+    }
+
+    .signup-container h2 {
+        text-align: center;
+        color: #000000; /* Blue color for heading */
+    }
+
+    .form-group {
+        margin: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #000000; /* Blue color for labels */
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-group button {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff; /* Blue button color */
+        color: #fff; /* White text color */
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+    }
+
+    .form-group button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .form-group a {
+        color: #007bff; /* Blue color for the "Sign Up" link */
+        text-decoration: none; /* Remove underline */
+        display: block; /* Display as block to occupy full width */
+        text-align: center; /* Center align the link */
+        margin-top: 20px; /* Add margin for spacing */
+    }
+
+    .form-group a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        color: #333;
+    }
+
+    @media (max-width: 600px) {
+        .signup-container {
+            width: 90%; /* Adjusted width for smaller screens */
+        }
+    }
+</style>
+<body>
+    <div class="signup-container">
+        <button class="close-btn" onclick="closeLogin()">&times;</button>
+
+        <h2>Sign Up</h2>
+
+        <form id="signup-form" class="signup-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="button" id="signup-btn">Sign Up</button>
+            </div>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAA54vudpO9eP3UCNd7Ehe1iltA7AP1TbA",
+          authDomain: "jobapplytracker.firebaseapp.com",
+          projectId: "jobapplytracker",
+          storageBucket: "jobapplytracker.appspot.com",
+          messagingSenderId: "648058361738",
+          appId: "1:648058361738:web:2b924b5e5d239beda01a73",
+          measurementId: "G-23H7FST4KJ"
+};
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+
+    // Function to handle signup
+    function signUp() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log('User signed up:', user);
+                alert('User signed up successfully!');
+
+                const db = getFirestore(app);
+                    const userRef = doc(db, "users", user.uid);
+                    setDoc(userRef, {
+                        username: username,
+                        email: email
+                    });
+               
+            })
+
+            
+            .catch((error) => {
+     
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error('Signup error:', errorMessage);
+                alert(errorMessage);
+            });
+    }
+
+    function closeLogin() {
+        window.location.href = 'index.html'; 
+    }
+
+
+    document.getElementById('signup-btn').addEventListener('click', signUp);
+
+
+</script>
+</body>
+</html>

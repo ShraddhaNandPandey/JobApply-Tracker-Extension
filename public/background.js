@@ -141,8 +141,6 @@ function editApplication(button) {
 }
 
 
-   
-
     row.parentNode.removeChild(row);
     
 

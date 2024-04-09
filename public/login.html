@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    
+    <style>
+         :root {
+        --text-color: #fff;
+        --background-color: #000000;
+        --button-bg: #444;
+        --section-background-color: #0b0a0d;
+        --navigation-bg-color: #030303;
+        --button-stroke-bg: #ffffff;
+        --addNew-bg: #222;
+        --navborder-color: #4f4e4e;
+        --textColor: #3ecf8d;
+        --label-bg-color: #1e1e21;
+        --application-input-bg: #000000;
+        --gradient-start-color: #171918;
+        --gradient-end-color: #070708;
+        --text-shadow-h1: #0dc2ff;
+        --square-line :  rgb(20, 21, 23);
+    }
+
+    .dark-mode {
+        --text-color: #333;
+        --background-color: #eff7f9;
+        --button-bg: #00b8f5;
+        --button-color: #fff;
+        --section-background-color: #ffffff;
+        --navigation-bg-color: #ffffff;
+        --button-stroke-bg: #000000;
+        --addNew-bg: #002970;
+        --navborder-color: #000000;
+        --textColor: #3333;
+        --label-bg-color : #ffffff;
+        --application-input-bg: #ccddf5;
+        --text-shadow-h1: #dcd1d1;
+        --square-line :  rgb(225, 231, 241);
+        --gradient-start-color: #0bfe9d;
+        --gradient-end-color: #4c76ea;
+    }
+
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-size: 20px 20px;
+        background-image: linear-gradient(to right, var(--square-line) 0.5px, transparent 0px),
+                          linear-gradient(to bottom, var(--square-line) 0.5px, transparent 0px);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000000;
+    }
+    
+    .container {
+        margin-top: 50px;
+    }
+    
+    .login-form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Added max-width for responsiveness */
+        width: 100%; /* Added width for responsiveness */
+        position: relative; 
+        
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-weight: bold;
+        display: block;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .form-group button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .form-group button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">  
+  <form id="login-form" class="login-form" action="#" method="POST">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <button type="button" id="login" class="btn btn-success">Login</button>
+          <p>Don't have an account? <a href="signup.html">Register</a></p>
+        </div>
+      </div><!-- end col -->
+    </div><!--  end row -->
+  </form>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+  
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+          apiKey: "AIzaSyAA54vudpO9eP3UCNd7Ehe1iltA7AP1TbA",
+          authDomain: "jobapplytracker.firebaseapp.com",
+          projectId: "jobapplytracker",
+          storageBucket: "jobapplytracker.appspot.com",
+          messagingSenderId: "648058361738",
+          appId: "1:648058361738:web:2b924b5e5d239beda01a73",
+          measurementId: "G-23H7FST4KJ"
+};
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+
+  // Function to handle login
+  document.getElementById("login").addEventListener("click", function() {
+    const email =  document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      alert(user.email + " Login successfully!!!");
+      
+      window.location.href = 'dashboard.html';
+      history.replaceState(null, null, 'dashboard.html'); // Redirect to index.html after successful login
+
+
+      
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      alert(errorMessage);
+    });                 
+  });
+
+
+
+
+</script>
+
+</body>
+</html>

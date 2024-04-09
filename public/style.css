@@ -47,16 +47,7 @@
     --gradient-end-color: #4c76ea;
   
 }
-#notes {
-    background-color: var(--background-color); /* Adjust variable usage */
-    width: 100%;
-    min-height: 50px;
-    max-height: 200px;
-    padding: 5px;
-    box-sizing: border-box;
-    resize: vertical;
-    overflow-y: auto;
-}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -81,6 +72,16 @@ body {
     overflow: auto;
     
 
+}
+#notes {
+    background-color: var(--background-color); /* Adjust variable usage */
+    width: 100%;
+    min-height: 50px;
+    max-height: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow-y: auto;
 }
 .logo{
     font-family: "Orbitron", sans-serif;
