@@ -49,12 +49,12 @@
       <ul>
         <li><a href="#" style="display:flexbox;" class="logoname"><img src="images/smile2.png"
               style="margin-bottom: -9px;">Apply
-          </a></li>
-  
-  
-        <li><a href="#"></a></li>
-  
-       
+          </a>
+
+        </li>
+
+        <li><span id="username-display"></span></li>
+
         <li style="cursor: pointer;" class="sun"><img src="images/sun.png " type="button" id="mode-toggle"></li>
       </ul>
     </nav>
@@ -303,10 +303,20 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+    const auth = getAuth();
+    
+  
 
-// Function to confirm logout
-function confirmLogout() {
+    function checkAuthAndRedirect() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in, redirect to another page
+      window.location.href = 'dashboard.html';
+    }
+  });
+}
+
+    document.getElementById("logout").addEventListener("click", function() {
     auth.signOut().then(() => {
         // Sign-out successful.
         console.log('Sign-out successful.');
@@ -314,47 +324,41 @@ function confirmLogout() {
 
         // Redirect to index.html after logging out
         window.location.href = 'index.html';
+
+        // Replace the current URL in the browser's history with the new URL
         history.replaceState(null, null, 'index.html');
     }).catch((error) => {
         // An error happened.
         console.log('An error happened.');
     });
-}
-
-// Event listener for logout button
-document.getElementById("logout").addEventListener("click", confirmLogout);
-
-// Function to handle login
-document.getElementById("login").addEventListener("click", function() {
-    const email =  document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-        alert(user.email + " Login successfully!!!");
-        window.location.href = 'index.html'; // Redirect to index.html after successful login
-    })
-    .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        alert(errorMessage);
-    });                 
 });
 
-// Function to check authentication status and redirect
-function checkAuthAndRedirect() {
-    auth.onAuthStateChanged(function(user) {
+
+  
+  function checkAuth() {
+    firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            // User is signed in, redirect to another page
-            window.location.href = 'dashboard.html';
+            // User is signed in
+            if (window.location.pathname.includes("index.html")) {
+                // Redirect to dashboard.html if the user is signed in and accessing index.html
+                window.location.href = 'dashboard.html';
+        history.replaceState(null, null, 'dashboard.html');
+
+            }
+        } else {
+            // User is not signed in
+            if (window.location.pathname.includes("dashboard.html")) {
+                // Redirect to index.html if the user is not signed in and accessing dashboard.html
+                window.location.href = 'index.html';
+              history.replaceState(null, null, 'index.html');
+
+            }
         }
     });
 }
 
 // Call the function to check authentication status
+checkAuth();
 checkAuthAndRedirect();
 
   </script>
@@ -405,5 +409,6 @@ checkAuthAndRedirect();
   });
  
 </script>
+
 </body>
 </html>
