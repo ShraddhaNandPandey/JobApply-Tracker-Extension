@@ -336,3 +336,10 @@ window.addEventListener('scroll', () => {
   });
 
 
+//toggle eye
+document.getElementById('togglePassword').addEventListener('click', function () {
+    var passwordField = document.getElementById('password');
+    var type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    this.querySelector('img').src = type === 'password' ? 'images/eye.png' : 'images/open-eye.png';
+});

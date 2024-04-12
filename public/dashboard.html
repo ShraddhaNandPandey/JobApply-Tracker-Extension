@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Extension Popup</title>
+    <title>ApplyTracker</title>
     <link rel="stylesheet" href="popup.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="form.css">
@@ -53,7 +53,7 @@
 
         </li>
 
-        <li><span id="username-display"></span></li>
+      
 
         <li style="cursor: pointer;" class="sun"><img src="images/sun.png " type="button" id="mode-toggle"></li>
       </ul>
@@ -76,7 +76,8 @@
 
 
     <section id="display">
-      <h1 id="headline"><img src="images/smile2.png" alt=""> Loading...</h1>
+      <h1 id="headline"><img src="images/smile2.png" alt="">  <li><span id="username-display"></span></li></h1>
+     
       <div class="div1">
         <ul>
           <li class="search-bar"><input type="text" placeholder="Search..."></li>
@@ -357,9 +358,65 @@
     });
 }
 
+
+
+
+function fetchAndDisplayUsername() {
+            const usernameDisplay = document.getElementById("username-display");
+            const headline = document.getElementById("headline");
+
+            // Check if a user is signed in
+            const user = auth.currentUser;
+            if (user) {
+                // Get the display name of the user
+                const username = user.displayName;
+
+                // Update the HTML elements with the username
+                if (username) {
+                    usernameDisplay.textContent = "Welcome, " + username;
+                    headline.textContent = "Welcome, " + username;
+                } else {
+                    // If the user's display name is not set, display a default message
+                    usernameDisplay.textContent = "Welcome, User";
+                    headline.textContent = "Welcome, User";
+                }
+            } else {
+                // If no user is signed in, display a default message
+                usernameDisplay.textContent = "Welcome, Guest";
+                headline.textContent = "Welcome, Guest";
+            }
+        }
+
+        // Call the function to fetch and display the username when the page loads
+        fetchAndDisplayUsername();
+
+        // Listen for authentication state changes
+        auth.onAuthStateChanged(user => {
+            fetchAndDisplayUsername(); // Update the username display when authentication state changes
+        });
+
+
+
+
+
+
+
+//storing table data start
+
+
+//storing table data end
+
+
+
+
+
 // Call the function to check authentication status
 checkAuth();
 checkAuthAndRedirect();
+
+
+
+
 
   </script>
 

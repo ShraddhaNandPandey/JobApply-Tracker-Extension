@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Extension Popup</title>
+  <title>ApplyTracker</title>
   <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="form.css">
@@ -67,10 +67,10 @@
       <ul>
         <li class="search-bar"><input type="text" placeholder="Search..."></li>
         <li class="sort-by">
-          <select>
+          <select style="color: rgb(112, 87, 210);">
             <option value="" disabled selected>Sort By</option>
             <option value="all">All</option>
-            <option value="applied">Applied</option>
+            <option value="applied" style="color: yell" >Applied</option>
             <option value="recent">Recent</option>
             <option value="oldest">Oldest</option>
 
@@ -177,21 +177,14 @@
  
       </div></a>
       </li>
-      <li>
-        <a href="#" id="linkedin"> <i class="devicon-linkedin-plain"></i></a>
-
-        <a href="#" id="github"> <i class="devicon-github-original"></i></a>
-
-
-
-
-      </li>
+      <div class="copyright"><img src="images/heart.png" alt="">@snp 2024</div>
+     
 
       <!-- model  -->
       <div id="myModal" class="modal">
 
         <div class="modal-content">
-          <h2>Edit Your Information</h2>
+          <h2>Enter your Details</h2>
           <span class="close">&times;</span>
           <div>
             <input type="text" id="nameInput" placeholder="Enter your name">
@@ -199,7 +192,22 @@
             <input type="text" id="nameInput" placeholder="Github link">
           </div>
           <button id="saveBtn" onclick="saveName()">Save</button>
+          <br>
+          <br>
+          <span>----------Developer Contact----------</span>
+          <br>
+          <br>
+          <li>
+            <a href="https://www.linkedin.com/in/shraddha-nand-pandey/" id="linkedin"> <i class="devicon-linkedin-plain"></i></a>
+    
+            <a href="https://github.com/ShraddhaNandPandey" id="github"> <i class="devicon-github-original"></i></a>
+    
+    
+    
+    
+          </li>
         </div>
+        
       </div>
       <!--  -->
 
@@ -245,18 +253,24 @@
 <!-- Modal Login -->
 <div id="loginModal" class="modal">
   <!-- Modal content -->
+  
   <div class="modal-content">
+   
     <!-- Close button -->
     <span class="close">&times;</span>
     <!-- Form -->
     <form id="login-form" class="login-form" action="#" method="POST">
       <div class="form-group">
-        <label for="email">Email:</label>
+       
         <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
       </div>
       <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+       
+        <div style="position: relative;">
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+          <span class="eye-icon" id="togglePassword">
+              <img src="images/eye.png" alt="Toggle password visibility" width="20">
+          </span>
       </div>
       <div class="form-group">
         <button type="button" id="login" class="btn btn-success">Login</button>

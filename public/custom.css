@@ -54,4 +54,78 @@
 background-color: black;
   
 }
+#login{
+  background-color:var(--addNew-bg);
+  border-color: var(--button-stroke-bg);
+  color: #ffff;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 
+  border-radius: 8px;
+  transition-duration: 0.5s;
+  box-shadow: 3px 2px 2px #0dc2ff;
+  width:50%;
+  margin: 15px;
+
+}
+#login:hover{
+
+  background-color: black;
+}
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+/* CSS styles for form group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* CSS styles for label */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+/* CSS styles for input field */
+.form-control {
+  background-color: var(--background-color);
+  margin: auto; /* Center the modal horizontally and vertically */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Adjust width for responsiveness */
+  max-width: 500px; /* Set maximum width to prevent the modal from becoming too wide */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  position: relative; /* Add position relative to center content */
+  padding: 10px;
+  color: white;
+}
+
+/* CSS styles for login button */
+
+
+/* CSS styles for link */
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #0dc2ff;
+  
+}
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+  cursor: pointer;
+  margin-left: 10px;
+}
