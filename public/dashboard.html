@@ -53,7 +53,18 @@
 
         </li>
 
-      
+       <li></li>
+       <li></li>
+       <li></li>
+       <li></li>
+       <li></li>
+       <li></li> 
+       <li></li>
+       <li></li>
+        <li> <img src="images/notify.png" style="cursor: pointer;" alt="" >
+          <li><img src="images/admin.png" style="cursor: pointer;" alt=""></li>
+        </li>
+     
 
         <li style="cursor: pointer;" class="sun"><img src="images/sun.png " type="button" id="mode-toggle"></li>
       </ul>
@@ -178,24 +189,12 @@
           <span class="tooltiptext">Logout</span>
   
           </div>
-      
-
-   
-        </div></a>
+         </div>
+          </a>
         </li>
-        <li>
-          <a href="#" id="linkedin"> <i class="devicon-linkedin-plain"></i></a>
-  
-          <a href="#" id="github"> <i class="devicon-github-original"></i></a>
-  
-  
-  
-  
-        </li>
-
-
-
         
+      
+        <div class="copyright"><img src="images/heart.png" alt="">@snp 2024</div>
 
         <!-- logout modal start-->
 
@@ -206,14 +205,26 @@
         <div id="myModal" class="modal">
   
           <div class="modal-content">
-            <h2>Edit Your Information</h2>
+            <h2>Edit Your Details</h2>
             <span class="close">&times;</span>
             <div>
-              <input type="text" id="nameInput" placeholder="Enter your name">
+              <input type="text" id="nameInput" placeholder="Edit you name">
               <input type="text" id="linkedin_link" placeholder="Linkedin link">
               <input type="text" id="nameInput" placeholder="Github link">
             </div>
             <button id="saveBtn" onclick="saveName()">Save</button>
+            <br>
+          <br>
+          <span>----------Developer <img src="images/heart.png"> Contact----------</span>
+          <br>
+          <br>
+          <li>
+            <a href="https://www.linkedin.com/in/shraddha-nand-pandey/" id="linkedin"> <i
+                class="devicon-linkedin-plain"></i></a>
+
+            <a href="https://github.com/ShraddhaNandPandey" id="github"> <i class="devicon-github-original"></i>
+            </a>
+          </li>
           </div>
         </div>
         <!--  -->
@@ -236,16 +247,9 @@
   
             </div>
   
-  
-  
-  
           </div>
   
         </div>
-  
-  
-  
-  
   
         <li><span class="material-symbols-outlined" id="settings" class="settings" onclick="openM()">
             settings
@@ -358,9 +362,6 @@
     });
 }
 
-
-
-
 function fetchAndDisplayUsername() {
             const usernameDisplay = document.getElementById("username-display");
             const headline = document.getElementById("headline");
@@ -466,6 +467,8 @@ checkAuthAndRedirect();
   });
  
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="javascript/api.js"></script>
 
 </body>
 </html>
