@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="delModal.css">
   <link rel="stylesheet" href="customScroll.css">
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="CSS_Files/company_logo.css">
   <!-- on scroll animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet"
@@ -39,6 +40,25 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <link type="image/png" sizes="16x16" rel="icon" href="images/icons8-apply-16.png">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Your existing CSS links -->
+    <!-- Add your CSS stylesheets here -->
+
+    <style>
+        /* CSS to style the company logo and input field */
+        .company-logo-input {
+            display: flex; /* Use flexbox to align items */
+            align-items: center; /* Align items vertically */
+        }
+
+        .company-logo {
+            width: 40px; /* Adjust the width of the logo */
+            margin-right: 10px; /* Add spacing between the logo and input field */
+        }
+    </style>
 
 
 
@@ -111,8 +131,14 @@
     <div class="formSection">
       <h3 id="changeTextToEdit">New Application</h3>
       <form id="applicationForm">
-        <label for="companyName">Company Name:</label>
-        <input type="text" id="companyName" name="companyName" required>
+        <label for="companyName">Company Name:    
+        <img src="" alt="" class="company-logo" id="companyLogo"></label>
+        <!-- Div to contain the logo and text -->
+   <div class="input-container">
+    <input type="text" id="companyName" name="companyName" required>
+   
+</div>
+
 
         <label for="position">Position:</label>
         <input type="text" id="position" name="position" required>
@@ -344,6 +370,54 @@
  
     const analytics = getAnalytics(app);
   </script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+       $(document).ready(function () {
+    // Function to fetch and display company logo
+    function fetchCompanyLogo(companyName) {
+        // Replace 'YOUR_API_KEY' with your actual API key
+        var apiKey = 'aexDbL5MJN5uj3+Ut+G14Q==BQMGqeRY4tNafILl';
+        var apiUrl = 'https://api.api-ninjas.com/v1/logo?name=' + encodeURIComponent(companyName);
+
+        $.ajax({
+            method: 'GET',
+            url: apiUrl,
+            headers: {
+                'X-Api-Key': apiKey
+            },
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.length > 0) {
+                    var logoUrl = result[0].image;
+                    $('#companyLogo').attr('src', logoUrl);
+                } else {
+                    console.error('No logo found for the company: ' + companyName);
+                    // Set default local image URL
+                    var defaultLogoUrl = 'images/happy.png';
+                    $('#companyLogo').attr('src', defaultLogoUrl);
+                }
+            },
+            error: function (jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+            }
+        });
+    }
+
+    // Call the function to fetch and display company logo
+    var companyName = $('#companyName').val(); // Get the company name from the input field
+    fetchCompanyLogo(companyName);
+
+    // Listen for changes in the company name input field
+    $('#companyName').on('input', function() {
+        var companyName = $(this).val();
+        fetchCompanyLogo(companyName);
+    });
+});
+
+    </script>
+
 <script src="login.js"></script>
 
 </body>

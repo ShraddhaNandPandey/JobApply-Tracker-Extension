@@ -20,7 +20,7 @@ input[type="date"],
 input[type="url"],
 textarea,
 select {
-    width: 100%;
+    
     padding: 10px;
     margin-bottom: 10px;
     background-color: var(--background-color);
@@ -29,9 +29,11 @@ select {
     border-radius: 5px;
     box-sizing: border-box;
     display: inline-block; /* Display input elements on the same line */
-    width: 50%; /* Adjust as needed */
+    
+    width: 50%;/* Adjust as needed */
     vertical-align: top; /* Align inputs with labels */
 }
+
 
 button {
     background-color: #0bd4f3;

@@ -1,0 +1,19 @@
+.input-container {
+   
+}
+
+#companyName {
+    /* Adjust as needed to accommodate the image */
+}
+
+.company-logo {
+ 
+ 
+   cursor: pointer;
+   margin-left: 10px;
+   
+}
+.company-logo:hover{
+  scale: 2;
+  margin-left: 30px;
+}
