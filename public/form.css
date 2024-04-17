@@ -54,3 +54,36 @@ button:hover {
     clear: both;
     display: table;
 }
+
+.radio-container {
+    margin-top: 10px;
+  }
+  
+  .radio-container input[type="radio"] {
+    display: none; /* Hide the default radio buttons */
+  }
+  
+  .radio-container label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .radio-container label:hover {
+    background-color: #041f51; /* Change background color on hover */
+  }
+  
+  /* Style for checked radio button */
+  .radio-container input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  /* color changing */
+  .on-campus {
+    background-color: #c3e6cb; /* Light green background color */
+    color: #155724; /* Dark green text color */
+}

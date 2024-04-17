@@ -121,9 +121,6 @@
         <!-- Table body rows will be added dynamically -->
       </tbody>
     </table>
-
-
-
     <div class="end" style="display: flex; justify-content:space-between">
       <button id="addNew" type="button" onclick="display :'none'">+Add New</button>
       <button id="closeFormButton" type="button" class="close-button">&times;</button>
@@ -131,9 +128,11 @@
     </div>
 
 
-
+    
     <div class="formSection">
-      <h3 id="changeTextToEdit">New Application</h3>
+      
+      <h3 id="changeTextToEdit">New Application <br>   <h3>  <img src="" alt="" class="company-logo" id="companyLogo"></h3></h3>
+    
       <form id="applicationForm">
         <label for="companyName">Company Name:
           <img src="" alt="" class="company-logo" id="companyLogo"></label>
@@ -165,6 +164,14 @@
 
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes" rows="4" required></textarea>
+
+        <label>Through:</label> <!-- Added label for the radio buttons -->
+        <div class="radio-container"> <!-- Added div to contain the radio buttons -->
+          <input type="radio" id="onCampus" name="location" value="On Campus">
+          <label for="onCampus">On Campus</label>
+          <input type="radio" id="offCampus" name="location" value="Off Campus">
+          <label for="offCampus">Off Campus</label>
+        </div>
         <div class="SaveClose">
           <button type="button" id="save" clsonclick="addApplication()">Save</button>
 
@@ -175,7 +182,6 @@
 
 
   </section>
-
 
 
 
