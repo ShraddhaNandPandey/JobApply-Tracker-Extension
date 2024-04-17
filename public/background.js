@@ -69,6 +69,7 @@ function saveApplication() {
     const status = document.getElementById('status').value;
     const link = document.getElementById('link').value;
     const notes = document.getElementById('notes').value;
+    const location = document.querySelector('input[name="location"]:checked').value;
 
     if (!companyName || !position || !applyDate || !status || !link || !notes) {
         alert('Please fill in all fields');
@@ -128,10 +129,17 @@ function editApplication(button) {
     document.getElementById('link').value = cells[5].querySelector('a').href;
     document.getElementById('notes').value = cells[6].innerText;
 
+
+    const formData = {
+     location
+    };
+    let savedApplications = JSON.parse(localStorage.getItem('savedApplications')) || [];
+    savedApplications.push(formData);
+
     isEditing = true;
     formSection.style.display = 'block';
     if(isEditing)
-{
+ {
 
     const notShowAddNew = document.getElementById('addNew');
     notShowAddNew.style.display='none';
@@ -179,6 +187,8 @@ function saveDataToLocalStorage() {
         notes: row.cells[6].innerText
     }));
     localStorage.setItem('tableData', JSON.stringify(data));
+    localStorage.setItem('savedApplications', JSON.stringify(savedApplications));
+    
 }
 
 function loadDataFromLocalStorage() {
@@ -343,3 +353,25 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     passwordField.setAttribute('type', type);
     this.querySelector('img').src = type === 'password' ? 'images/eye.png' : 'images/open-eye.png';
 });
+
+
+
+
+// Add event listeners to radio buttons
+document.getElementById('onCampus').addEventListener('change', handleRadioChange);
+document.getElementById('offCampus').addEventListener('change', handleRadioChange);
+
+// Function to handle radio button change
+function handleRadioChange(event) {
+    const selectedLocation = event.target.value;
+    localStorage.setItem('selectedLocation', selectedLocation);
+}
+// Check if a location is already selected in local storage
+const selectedLocation = localStorage.getItem('selectedLocation');
+
+// Set the radio button based on the selected location
+if (selectedLocation === 'On Campus') {
+    document.getElementById('onCampus').checked = true;
+} else if (selectedLocation === 'Off Campus') {
+    document.getElementById('offCampus').checked = true;
+}
