@@ -135,36 +135,33 @@
     
       <form id="applicationForm">
         <label for="companyName">Company Name:
-          <img src="" alt="" class="company-logo" id="companyLogo"></label>
-        <!-- Div to contain the logo and text -->
-        
-          <input   class="input-container" type="text" id="companyName" name="companyName" required>
-
-
-
+          <img src="" alt="" class="company-logo" id="companyLogo">
+        </label> <!-- Div to contain the logo and text -->
+        <input class="input-container" type="text" id="companyName" name="companyName" required>
+      
         <label for="position">Position:</label>
         <input type="text" id="position" name="position" required>
-
+      
         <label for="applyDate">Apply Date:</label>
         <input type="date" id="applyDate" name="applyDate" required>
-
+      
         <label for="status">Status:</label>
         <select id="status" name="status" required>
           <option value="">Select Status</option>
           <option value="Applied">Applied</option>
+          <option value="Under Consideration">Under Consideration</option>
           <option value="Interested">Interested</option>
           <option value="Interviewing">Interviewing</option>
           <option value="Offered">Offered</option>
           <option value="Rejected">Rejected</option>
-
         </select>
+      
         <label for="link">Link:</label>
         <input type="url" id="link" name="link" pattern="https?://.+">
-
-
+      
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes" rows="4" required></textarea>
-
+      
         <label>Through:</label> <!-- Added label for the radio buttons -->
         <div class="radio-container"> <!-- Added div to contain the radio buttons -->
           <input type="radio" id="onCampus" name="location" value="On Campus">
@@ -172,18 +169,14 @@
           <input type="radio" id="offCampus" name="location" value="Off Campus">
           <label for="offCampus">Off Campus</label>
         </div>
+      
         <div class="SaveClose">
-          <button type="button" id="save" clsonclick="addApplication()">Save</button>
-
+          <button type="button" id="save" onclick="addApplication()">Save</button>
         </div>
-
       </form>
-
-
+      
 
   </section>
-
-
 
   <div class="bottom-nav" id="bottom-nav">
     <ul>

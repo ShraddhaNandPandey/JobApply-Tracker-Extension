@@ -471,3 +471,49 @@ th:nth-child(8), td:nth-child(8) {
         padding: 8px;
     }
 }
+/* Your existing CSS styles... */
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    section {
+        width: 95%;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin-right: 5px;
+    }
+
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    th, td {
+        min-width: 50px; /* Adjust as needed */
+        padding: 5px;
+    }
+}
